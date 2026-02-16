@@ -1,8 +1,8 @@
 # Quarkus Template
 
-[![Build](https://img.shields.io/github/actions/workflow/status/zbhavyai/quarkus-template/build.yml?label=Build)](https://github.com/zbhavyai/quarkus-template/actions/workflows/build.yml)
-[![Release](https://img.shields.io/github/actions/workflow/status/zbhavyai/quarkus-template/release.yml?label=Release)](https://github.com/zbhavyai/quarkus-template/actions/workflows/release.yml)
-[![License](https://img.shields.io/github/license/zbhavyai/quarkus-template?label=License)](https://github.com/zbhavyai/quarkus-template/blob/main/LICENSE)
+[![Build](https://img.shields.io/github/actions/workflow/status/devscompass/quarkus-template/build.yml?label=Build)](https://github.com/devscompass/quarkus-template/actions/workflows/build.yml)
+[![Release](https://img.shields.io/github/actions/workflow/status/devscompass/quarkus-template/release.yml?label=Release)](https://github.com/devscompass/quarkus-template/actions/workflows/release.yml)
+[![License](https://img.shields.io/github/license/devscompass/quarkus-template?label=License)](https://github.com/devscompass/quarkus-template/blob/main/LICENSE)
 
 A **starter template** for building backend applications with [Quarkus](https://quarkus.io/), the _supersonic-subatomic_ Java framework.
 
