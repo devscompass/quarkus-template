@@ -9,7 +9,7 @@ public class ConflictException extends ClientErrorException {
     super(Response.Status.CONFLICT);
   }
 
-  public ConflictException(final String message) {
+  public ConflictException(String message) {
     super(message, Response.Status.CONFLICT);
   }
 }
