@@ -23,6 +23,6 @@ public class PingResource {
   @GET
   @Produces(MediaType.TEXT_PLAIN)
   public Uni<Response> ping() {
-    return service.ping().onItem().transform(ResponseUtils::handleSuccess);
+    return service.ping().map(ResponseUtils::handleSuccess);
   }
 }

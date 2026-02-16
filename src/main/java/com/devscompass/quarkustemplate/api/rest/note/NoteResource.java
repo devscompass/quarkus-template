@@ -33,14 +33,14 @@ public class NoteResource {
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public Uni<Response> listNotes() {
-    return service.listNotes().onItem().transform(ResponseUtils::handleSuccess);
+    return service.listNotes().map(ResponseUtils::handleSuccess);
   }
 
   @GET
   @Path("/{id}")
   @Produces(MediaType.APPLICATION_JSON)
   public Uni<Response> getNoteById(@PathParam("id") String id) {
-    return service.getNoteById(id).onItem().transform(ResponseUtils::handleSuccess);
+    return service.getNoteById(id).map(ResponseUtils::handleSuccess);
   }
 
   @POST
@@ -49,8 +49,7 @@ public class NoteResource {
   public Uni<Response> createNote(NoteCreateDTO dto) {
     return service
         .createNote(dto)
-        .onItem()
-        .transform(
+        .map(
             res ->
                 ResponseUtils.handleCreated(
                     res, uriInfo.getRequestUriBuilder().path(res.id()).build()));
@@ -61,12 +60,12 @@ public class NoteResource {
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
   public Uni<Response> updateNote(@PathParam("id") String id, NoteUpdateDTO dto) {
-    return service.updateNote(id, dto).onItem().transform(ResponseUtils::handleSuccess);
+    return service.updateNote(id, dto).map(ResponseUtils::handleSuccess);
   }
 
   @DELETE
   @Path("/{id}")
   public Uni<Response> deleteNote(@PathParam("id") String id) {
-    return service.deleteNote(id).onItem().transform(ignored -> ResponseUtils.handleDeleted());
+    return service.deleteNote(id).map(ignored -> ResponseUtils.handleDeleted());
   }
 }
