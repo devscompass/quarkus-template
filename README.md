@@ -1,8 +1,8 @@
 # Quarkus Template
 
-[![Build](https://img.shields.io/github/actions/workflow/status/zbhavyai/quarkus-template/build.yml?label=Build)](https://github.com/zbhavyai/quarkus-template/actions/workflows/build.yml)
-[![Release](https://img.shields.io/github/actions/workflow/status/zbhavyai/quarkus-template/release.yml?label=Release)](https://github.com/zbhavyai/quarkus-template/actions/workflows/release.yml)
-[![License](https://img.shields.io/github/license/zbhavyai/quarkus-template?label=License)](https://github.com/zbhavyai/quarkus-template/blob/main/LICENSE)
+[![Build](https://img.shields.io/github/actions/workflow/status/devscompass/quarkus-template/build.yml?label=Build)](https://github.com/devscompass/quarkus-template/actions/workflows/build.yml)
+[![Release](https://img.shields.io/github/actions/workflow/status/devscompass/quarkus-template/release.yml?label=Release)](https://github.com/devscompass/quarkus-template/actions/workflows/release.yml)
+[![License](https://img.shields.io/github/license/devscompass/quarkus-template?label=License)](https://github.com/devscompass/quarkus-template/blob/main/LICENSE)
 
 A **starter template** for building backend applications with [Quarkus](https://quarkus.io/), the _supersonic-subatomic_ Java framework.
 
@@ -19,7 +19,7 @@ A **starter template** for building backend applications with [Quarkus](https://
 - :fast_forward: [Develocity build cache](https://gradle.com/develocity/product/build-cache/) enabled for accelerated builds
 - :hammer_and_wrench: [Makefile](https://www.gnu.org/software/make/) targets for format, build, run, and container tasks
 - :broom: [Spotless](https://github.com/diffplug/spotless) on `validate` phase and with a `pre-commit` hook for style enforcement
-- :pen: [VS Code](https://code.visualstudio.com/) settings included, [IntelliJ IDEA](https://www.jetbrains.com/idea/) configs [here](https://github.com/zbhavyai/fedora-setup/tree/main/roles/intellij_idea/files)
+- :pen: [VS Code](https://code.visualstudio.com/) and [IntelliJ IDEA](https://www.jetbrains.com/idea/) settings included
 - :cloud: [Firebase Studio](https://firebase.studio/) settings for cloud-based development
 - :art: [google-java-format](https://github.com/google/google-java-format) for consistent code formatting
 - :page_facing_up: [.editorconfig](https://editorconfig.org/) for consistent coding styles across editors

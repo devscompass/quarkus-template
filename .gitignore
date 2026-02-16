@@ -14,7 +14,11 @@ release.properties
 bin/
 
 # intellij
-.idea
+.idea/*
+!.idea/encodings.xml
+!.idea/google-java-format.xml
+!.idea/vcs.xml
+!.idea/misc.xml
 *.ipr
 *.iml
 *.iws

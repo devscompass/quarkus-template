@@ -1,7 +1,7 @@
 # build stage
 FROM docker.io/library/eclipse-temurin:21-jdk AS build
-WORKDIR /opt/app
 ARG REVISION
+WORKDIR /opt/app
 COPY pom.xml mvnw ./
 COPY .mvn .mvn
 RUN --mount=type=cache,target=/root/.m2/repository ./mvnw --batch-mode dependency:go-offline
@@ -13,11 +13,12 @@ FROM docker.io/library/eclipse-temurin:21-jre
 ARG REVISION
 LABEL org.opencontainers.image.title="Quarkus Template"
 LABEL org.opencontainers.image.description="Quarkus Template"
-LABEL org.opencontainers.image.source="https://github.com/zbhavyai/quarkus-template"
+LABEL org.opencontainers.image.source="https://github.com/devscompass/quarkus-template"
 LABEL org.opencontainers.image.licenses="MIT"
-LABEL org.opencontainers.image.authors="Bhavyai Gupta <https://zbhavyai.github.io>"
+LABEL org.opencontainers.image.authors="Devs Compass"
 LABEL org.opencontainers.image.version="${REVISION}"
 WORKDIR /opt/app
+ENV HOME=/opt/app
 COPY --from=build /opt/app/target/quarkus-template-*-runner.jar quarkus-template-runner.jar
 HEALTHCHECK --interval=10s --timeout=5s --start-period=15s --retries=5 CMD curl --fail --silent --show-error http://localhost:8080/api/ping || exit 1
 EXPOSE 8080
