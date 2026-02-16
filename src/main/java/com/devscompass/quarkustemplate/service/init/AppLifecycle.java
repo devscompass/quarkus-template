@@ -2,10 +2,10 @@ package com.devscompass.quarkustemplate.service.init;
 
 import io.quarkus.runtime.Shutdown;
 import io.quarkus.runtime.Startup;
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Singleton;
 import org.jboss.logging.Logger;
 
-@ApplicationScoped
+@Singleton
 public class AppLifecycle {
 
   private static final Logger LOG = Logger.getLogger(AppLifecycle.class);
