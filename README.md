@@ -15,6 +15,7 @@ A **starter template** for building backend applications with [Quarkus](https://
 - :luggage: [Flyway](https://www.red-gate.com/products/flyway/community/) for version-controlled database migrations
 - :open_file_folder: Defined project structure with ready-to-use [`application.properties`](src/main/resources/application.properties)
 - :test_tube: [JUnit](https://junit.org/) unit tests to keep code honest
+- :chart_with_upwards_trend: [Micrometer](https://micrometer.io/) for application metrics and observability
 - :fast_forward: [Develocity build cache](https://gradle.com/develocity/product/build-cache/) enabled for accelerated builds
 - :hammer_and_wrench: [Makefile](https://www.gnu.org/software/make/) targets for format, build, run, and container tasks
 - :broom: [Spotless](https://github.com/diffplug/spotless) on `validate` phase and with a `pre-commit` hook for style enforcement
