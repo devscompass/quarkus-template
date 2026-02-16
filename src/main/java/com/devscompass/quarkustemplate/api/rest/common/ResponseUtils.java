@@ -1,11 +1,9 @@
 package com.devscompass.quarkustemplate.api.rest.common;
 
 import com.devscompass.quarkustemplate.dto.error.ErrorResponse;
-import jakarta.inject.Singleton;
 import jakarta.ws.rs.core.Response;
 import java.net.URI;
 
-@Singleton
 public class ResponseUtils {
 
   public static Response handleSuccess(Object obj) {
