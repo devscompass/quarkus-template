@@ -1,14 +1,14 @@
-# Build Stage
+# build stage
 FROM docker.io/library/eclipse-temurin:21-jdk AS build
 WORKDIR /opt/app
 ARG REVISION
 COPY pom.xml mvnw ./
 COPY .mvn .mvn
-RUN --mount=type=cache,target=/root/.m2 ./mvnw --batch-mode dependency:go-offline
+RUN --mount=type=cache,target=/root/.m2/repository ./mvnw --batch-mode dependency:go-offline
 COPY src src
-RUN --mount=type=cache,target=/root/.m2 ./mvnw --batch-mode package -Drevision=${REVISION} -DskipTests -DskipITs
+RUN --mount=type=cache,target=/root/.m2/repository ./mvnw --batch-mode package -Drevision=${REVISION} -DskipTests -DskipITs
 
-# Runtime Stage
+# runtime stage
 FROM docker.io/library/eclipse-temurin:21-jre
 ARG REVISION
 LABEL org.opencontainers.image.title="Quarkus Template"
