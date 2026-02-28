@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# set new version of maven
+# ask for a new version of maven
 if [[ $# -ge 1 ]]; then
     mavenVersion="$1"
     echo "[ INFO] Using version from command line: ${mavenVersion}"
