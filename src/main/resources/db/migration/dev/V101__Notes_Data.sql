@@ -1,5 +1,5 @@
 INSERT INTO
-    "quarkustemplate"."notes" (
+    "notes" (
         "id",
         "optlock",
         "title",
