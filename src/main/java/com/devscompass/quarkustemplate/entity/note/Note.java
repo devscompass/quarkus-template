@@ -14,7 +14,7 @@ public class Note extends AbstractTimestampedEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  @Column(name = "id")
+  @Column(name = "id", nullable = false, updatable = false)
   public String id;
 
   @Column(name = "title", nullable = false)
