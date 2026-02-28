@@ -28,14 +28,14 @@ public class NoteResourceTest {
   void setup() throws SQLException {
     try (Connection conn = dataSource.getConnection()) {
       try (PreparedStatement truncateStmt =
-          conn.prepareStatement("TRUNCATE TABLE quarkustemplate.notes RESTART IDENTITY CASCADE")) {
+          conn.prepareStatement("TRUNCATE TABLE notes RESTART IDENTITY CASCADE")) {
         truncateStmt.execute();
       }
 
       try (PreparedStatement insertStmt =
           conn.prepareStatement(
-              "INSERT INTO quarkustemplate.notes (id, optlock, title, content, created_at,"
-                  + " updated_at) VALUES (?, 0, ?, ?, now(), now())")) {
+              "INSERT INTO notes (id, optlock, title, content, created_at, updated_at) VALUES (?,"
+                  + " 0, ?, ?, now(), now())")) {
 
         insertStmt.setString(1, "3282249b-19ee-4c5e-9be2-b9f714610aa6");
         insertStmt.setString(2, "Note 1");
