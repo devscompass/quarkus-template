@@ -1,0 +1,33 @@
+# build stage
+FROM quay.io/quarkus/ubi9-quarkus-mandrel-builder-image:jdk-21 AS build
+ARG REVISION
+USER root
+WORKDIR /opt/app
+COPY pom.xml mvnw ./
+COPY .mvn .mvn
+RUN --mount=type=cache,target=/root/.m2/repository ./mvnw --batch-mode dependency:go-offline
+COPY src src
+RUN --mount=type=cache,target=/root/.m2/repository ./mvnw --batch-mode package -Dnative -DskipTests -DskipITs
+
+# curl installation
+FROM registry.access.redhat.com/ubi9/ubi-minimal:9.5 AS curl
+RUN microdnf install -y curl-minimal
+
+# runtime stage
+FROM quay.io/quarkus/ubi9-quarkus-micro-image:2.0
+ARG REVISION
+LABEL org.opencontainers.image.title="Quarkus Template"
+LABEL org.opencontainers.image.description="Quarkus Template"
+LABEL org.opencontainers.image.source="https://github.com/devscompass/quarkus-template"
+LABEL org.opencontainers.image.licenses="MIT"
+LABEL org.opencontainers.image.authors="Devs Compass"
+LABEL org.opencontainers.image.version="${REVISION}"
+WORKDIR /opt/app
+ENV HOME=/opt/app
+ENV JAVA_TOOL_OPTIONS="--enable-native-access=ALL-UNNAMED"
+COPY --from=build /opt/app/target/quarkus-template-*-runner /opt/app/quarkus-template-runner
+COPY --from=curl /usr/bin/curl /usr/bin/curl
+RUN chmod -R "g+rwX" /opt/app && chown -R 1001:root /opt/app
+EXPOSE 3002
+USER 1001
+CMD ["/opt/app/quarkus-template-runner"]

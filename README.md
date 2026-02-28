@@ -24,8 +24,9 @@ A **starter template** for building backend applications with [Quarkus](https://
 - :art: [google-java-format](https://github.com/google/google-java-format) for consistent code formatting
 - :page_facing_up: [.editorconfig](https://editorconfig.org/) for consistent coding styles across editors
 - :whale: Containerization with Dockerfile and docker compose
+- :rabbit2: Native executable support with [GraalVM](https://www.graalvm.org/) for ultra-fast startups
 - :otter: Automatic [Podman](https://podman.io/)/[Docker](https://www.docker.com/) detection for local dev
-- :vertical_traffic_light: [GitHub Actions](https://github.com/features/actions) and [Bitbucket Pipelines](https://www.atlassian.com/software/bitbucket/features/pipelines) for CI/CD
+- :vertical_traffic_light: [GitHub Actions](https://github.com/features/actions) for CI/CD
 - :label: Artifact versioning based on Git SHA or tag, both in CI/CD and local builds
 - :robot: [Dependabot](https://github.com/dependabot) for automated dependency updates
 
