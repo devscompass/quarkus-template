@@ -13,12 +13,12 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.NotFoundException;
 import java.util.List;
-import org.jboss.logging.Logger;
+import org.slf4j.LoggerFactory;
 
 @ApplicationScoped
 public class NoteServiceImpl implements NoteService {
 
-  private static final Logger LOG = Logger.getLogger(NoteServiceImpl.class);
+  private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(NoteServiceImpl.class);
 
   private final NoteRepository noteRepository;
 
@@ -30,7 +30,7 @@ public class NoteServiceImpl implements NoteService {
   @WithSession
   @Override
   public Uni<List<NoteSummaryDTO>> listNotes() {
-    LOG.debugf("listNotes");
+    LOG.debug("listNotes");
 
     return noteRepository
         .listAll()
@@ -40,7 +40,7 @@ public class NoteServiceImpl implements NoteService {
   @WithSession
   @Override
   public Uni<NoteDTO> getNoteById(String id) {
-    LOG.debugf("getNoteById: id=\"%s\"", id);
+    LOG.debug("getNoteById: id='{}'", id);
 
     return noteRepository
         .findById(id)
@@ -53,7 +53,7 @@ public class NoteServiceImpl implements NoteService {
   @WithTransaction
   @Override
   public Uni<NoteDTO> createNote(NoteCreateDTO dto) {
-    LOG.debugf("createNote: dto=\"%s\"", dto);
+    LOG.debug("createNote: dto='{}'", dto);
 
     return noteRepository.persist(NoteMapper.fromCreateDTO(dto)).map(NoteMapper::toDTO);
   }
@@ -61,7 +61,7 @@ public class NoteServiceImpl implements NoteService {
   @WithTransaction
   @Override
   public Uni<NoteDTO> updateNote(String id, NoteUpdateDTO dto) {
-    LOG.debugf("updateNote: dto=\"%s\"", dto);
+    LOG.debug("updateNote: dto='{}'", dto);
 
     return noteRepository
         .findById(id)
@@ -75,6 +75,8 @@ public class NoteServiceImpl implements NoteService {
   @WithTransaction
   @Override
   public Uni<Void> deleteNote(String id) {
+    LOG.debug("deleteNote: id='{}'", id);
+
     return noteRepository
         .deleteById(id)
         .onItem()

@@ -9,15 +9,16 @@ import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.Provider;
 import org.hibernate.HibernateException;
-import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.ClientWebApplicationException;
 import org.jboss.resteasy.reactive.common.NotImplementedYet;
 import org.jboss.resteasy.reactive.server.ServerExceptionMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Provider
 public class ExceptionMapper {
 
-  private static final Logger LOG = Logger.getLogger(ExceptionMapper.class);
+  private static final Logger LOG = LoggerFactory.getLogger(ExceptionMapper.class);
 
   @ServerExceptionMapper(NotFoundException.class)
   public Response handleResourceNotFound(NotFoundException e) {

@@ -3,12 +3,12 @@ package com.devscompass.quarkustemplate.service.init;
 import io.quarkus.runtime.Shutdown;
 import io.quarkus.runtime.Startup;
 import jakarta.inject.Singleton;
-import org.jboss.logging.Logger;
+import org.slf4j.LoggerFactory;
 
 @Singleton
 public class AppLifecycle {
 
-  private static final Logger LOG = Logger.getLogger(AppLifecycle.class);
+  private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(AppLifecycle.class);
 
   @Startup
   void start() {
