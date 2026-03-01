@@ -48,7 +48,7 @@ jobs:
         run: ./mvnw --batch-mode test -Drevision=${REVISION}
 
       - name: Upload test reports
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: test-reports-${{ env.REVISION }}
           path: target/surefire-reports/*
@@ -86,7 +86,7 @@ jobs:
         run: ./mvnw --batch-mode verify -Drevision=${REVISION} -DskipTests -DskipITs
 
       - name: Upload JAR
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: runner-jar-${{ env.REVISION }}
           path: target/quarkus-template-*-runner.jar
