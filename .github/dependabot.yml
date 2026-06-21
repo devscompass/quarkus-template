@@ -54,7 +54,9 @@ updates:
       separator: "-"
     ignore:
       - dependency-name: "library/eclipse-temurin"
-        versions: [ ">=22" ]
+        versions: [ ">25" ]
+      - dependency-name: "quarkus/ubi9-quarkus-mandrel-builder-image"
+        versions: [ ">25" ]
 
   - package-ecosystem: "docker-compose"
     directory: "/"
