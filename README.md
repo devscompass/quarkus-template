@@ -20,7 +20,6 @@ A **starter template** for building backend applications with [Quarkus](https://
 - :hammer_and_wrench: [Makefile](https://www.gnu.org/software/make/) targets for format, build, run, and container tasks
 - :broom: [Spotless](https://github.com/diffplug/spotless) on `validate` phase and with a `pre-commit` hook for style enforcement
 - :pen: [VS Code](https://code.visualstudio.com/) and [IntelliJ IDEA](https://www.jetbrains.com/idea/) settings included
-- :cloud: [Firebase Studio](https://firebase.studio/) settings for cloud-based development
 - :art: [google-java-format](https://github.com/google/google-java-format) for consistent code formatting
 - :page_facing_up: [.editorconfig](https://editorconfig.org/) for consistent coding styles across editors
 - :whale: Containerization with Dockerfile and docker compose
