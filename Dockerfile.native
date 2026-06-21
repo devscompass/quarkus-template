@@ -10,7 +10,7 @@ COPY src src
 RUN --mount=type=cache,target=/root/.m2/repository ./mvnw --batch-mode package -Dnative -DskipTests -DskipITs
 
 # curl installation
-FROM registry.access.redhat.com/ubi9/ubi-minimal:9.5 AS curl
+FROM registry.access.redhat.com/ubi9/ubi-minimal:9.8 AS curl
 RUN microdnf install -y curl-minimal
 
 # runtime stage
