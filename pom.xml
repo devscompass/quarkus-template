@@ -12,15 +12,15 @@
 
   <properties>
     <compiler-plugin.version>3.15.0</compiler-plugin.version>
-    <maven.compiler.release>21</maven.compiler.release>
+    <maven.compiler.release>25</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>3.36.0</quarkus.platform.version>
+    <quarkus.platform.version>3.36.3</quarkus.platform.version>
     <skipITs>false</skipITs>
     <surefire-plugin.version>3.5.6</surefire-plugin.version>
-    <spotless.version>3.6.0</spotless.version>
+    <spotless.version>3.7.0</spotless.version>
     <google-java-format.version>1.28.0</google-java-format.version>
     <versions.version>2.21.0</versions.version>
     <revision>1.0.0</revision>
@@ -173,7 +173,7 @@
         <artifactId>versions-maven-plugin</artifactId>
         <version>${versions.version}</version>
         <configuration>
-          <ignoredVersions>(?i).*-(alpha|beta|m|rc|cr)([-.]?\d+)?</ignoredVersions>
+          <ignoredVersions>(?i).*[.-](alpha|beta|m|rc|cr)([-.]?\d+)?</ignoredVersions>
         </configuration>
       </plugin>
     </plugins>
