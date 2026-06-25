@@ -1,71 +1,55 @@
 CONTAINER_ENGINE := $(shell if command -v podman >/dev/null 2>&1; then echo podman; else echo docker; fi)
 REVISION := $(shell git rev-parse --short HEAD)
 
-.PHONY: prep clean test dev format check-updates build build-native run run-native container-build container-run container-stop container-logs container-destroy help
+.PHONY: help init clean test dev format check-updates build build-native run run-native container-build container-run container-stop container-logs container-destroy
 
-prep:
+help: ## show this help message
+	@echo "Available targets:"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-20s - %s\n", $$1, $$2}'
+
+init: ## install git hook
 	@ln -sf $(CURDIR)/.hooks/pre-commit.sh .git/hooks/pre-commit
 	@echo "Hook installed";
 
-clean:
+clean: ## clean build artifacts
 	@./mvnw --quiet --batch-mode clean;
-	@echo "Cleaned build artifacts";
 
-test:
+test: ## run tests
 	@./mvnw clean test -Drevision=$(REVISION);
 
-dev:
+dev: ## start app in development mode
 	@./mvnw clean quarkus:dev
 
-format:
+format: ## format codebase
 	@./mvnw spotless:apply
 
-check-updates:
+check-updates: ## check for dependency and extension updates
 	@./mvnw versions:display-property-updates
 	@./mvnw versions:display-extension-updates
 
-build:
+build: ## build app in jvm mode
 	@./mvnw clean verify -Drevision=$(REVISION)
 
-build-native:
+build-native: ## build app in native mode
 	@./mvnw clean verify -Dnative -Drevision=$(REVISION)
 
-run:
+run: ## run app in jvm mode
 	@java -jar ./target/quarkus-template-*-runner.jar
 
-run-native:
+run-native: ## run app in native mode
 	@./target/quarkus-template-*-runner
 
-container-build:
+container-build: ## build and create app container image
 	@REVISION=$(REVISION) $(CONTAINER_ENGINE) compose build
 
-container-run:
+container-run: ## run app container
 	@REVISION=$(REVISION) $(CONTAINER_ENGINE) compose up --detach
 
-container-stop:
+container-stop: ## stop app container
 	@REVISION=$(REVISION) $(CONTAINER_ENGINE) compose down
 
-container-logs:
+container-logs: ## print app container logs
 	@REVISION=$(REVISION) $(CONTAINER_ENGINE) compose logs --follow
 
-container-destroy:
+container-destroy: ## stop and delete app container, networks, volumes, and images
 	@REVISION=$(REVISION) $(CONTAINER_ENGINE) compose down --volumes --rmi local
-
-help:
-	@echo "Available targets:"
-	@echo "  prep              - Install git hook"
-	@echo "  clean             - Clean build artifacts"
-	@echo "  test              - Run tests"
-	@echo "  dev               - Start app in development mode"
-	@echo "  format            - Format code using Spotless"
-	@echo "  check-updates     - Check for dependency updates in the pom.xml"
-	@echo "  build             - Build app in JVM mode"
-	@echo "  build-native      - Build app in native mode"
-	@echo "  run               - Run app in JVM mode"
-	@echo "  run-native        - Run app in native mode"
-	@echo "  container-build   - Build app in containers and create container image"
-	@echo "  container-run     - Run app container"
-	@echo "  container-stop    - Stop app container"
-	@echo "  container-logs    - Show app container logs"
-	@echo "  container-destroy - Stop and delete app container, networks, volumes, and images"
-	@echo "  help              - Show this help message"
