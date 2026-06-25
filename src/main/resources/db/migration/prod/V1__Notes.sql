@@ -1,4 +1,4 @@
-CREATE TABLE "appdb"."notes" (
+CREATE TABLE "notes" (
     "id" VARCHAR(255) NOT NULL,
     "optlock" BIGINT NOT NULL,
     "title" VARCHAR(255) NOT NULL,

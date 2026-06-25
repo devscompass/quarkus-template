@@ -1,5 +1,5 @@
 INSERT INTO
-    "appdb"."notes" (
+    "notes" (
         "id",
         "optlock",
         "title",

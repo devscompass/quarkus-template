@@ -9,18 +9,19 @@ import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.Provider;
 import org.hibernate.HibernateException;
-import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.ClientWebApplicationException;
 import org.jboss.resteasy.reactive.common.NotImplementedYet;
 import org.jboss.resteasy.reactive.server.ServerExceptionMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Provider
 public class ExceptionMapper {
 
-  private static final Logger LOG = Logger.getLogger(ExceptionMapper.class);
+  private static final Logger LOG = LoggerFactory.getLogger(ExceptionMapper.class);
 
   @ServerExceptionMapper(NotFoundException.class)
-  public Response handleResourceNotFound(NotFoundException e) {
+  public Response handleNotFound(NotFoundException e) {
     return ResponseUtils.handleFailure(Response.Status.NOT_FOUND, e.getMessage());
   }
 
@@ -44,7 +45,7 @@ public class ExceptionMapper {
   }
 
   @ServerExceptionMapper(NotImplementedYet.class)
-  public Response handleNotImplementedYet(NotImplementedYet e) {
+  public Response handleNotImplemented(NotImplementedYet e) {
     return ResponseUtils.handleFailure(Response.Status.NOT_IMPLEMENTED, e.getMessage());
   }
 
@@ -76,7 +77,7 @@ public class ExceptionMapper {
   }
 
   @ServerExceptionMapper(Throwable.class)
-  public Response handleGeneric(Throwable e) {
+  public Response handleServiceUnavailable(Throwable e) {
     LOG.error("Unexpected error: ", e);
     return ResponseUtils.handleFailure(Response.Status.SERVICE_UNAVAILABLE, e.getMessage());
   }
