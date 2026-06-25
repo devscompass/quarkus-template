@@ -21,7 +21,7 @@ public class ExceptionMapper {
   private static final Logger LOG = LoggerFactory.getLogger(ExceptionMapper.class);
 
   @ServerExceptionMapper(NotFoundException.class)
-  public Response handleResourceNotFound(NotFoundException e) {
+  public Response handleNotFound(NotFoundException e) {
     return ResponseUtils.handleFailure(Response.Status.NOT_FOUND, e.getMessage());
   }
 
@@ -45,7 +45,7 @@ public class ExceptionMapper {
   }
 
   @ServerExceptionMapper(NotImplementedYet.class)
-  public Response handleNotImplementedYet(NotImplementedYet e) {
+  public Response handleNotImplemented(NotImplementedYet e) {
     return ResponseUtils.handleFailure(Response.Status.NOT_IMPLEMENTED, e.getMessage());
   }
 
@@ -77,7 +77,7 @@ public class ExceptionMapper {
   }
 
   @ServerExceptionMapper(Throwable.class)
-  public Response handleGeneric(Throwable e) {
+  public Response handleServiceUnavailable(Throwable e) {
     LOG.error("Unexpected error: ", e);
     return ResponseUtils.handleFailure(Response.Status.SERVICE_UNAVAILABLE, e.getMessage());
   }
