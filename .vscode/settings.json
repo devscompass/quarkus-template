@@ -14,28 +14,13 @@
   "java.saveActions.organizeImports": true,
   "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms100m -Xlog:disable",
   "redhat.telemetry.enabled": false,
-  "[java]": {
-    "editor.defaultFormatter": "josevseb.google-java-format-for-vs-code"
-  },
-  "[sql]": {
-    "editor.defaultFormatter": "ReneSaarsoo.sql-formatter-vsc"
-  },
-  "[shellscript]": {
-    "editor.defaultFormatter": "mkhl.shfmt"
-  },
-  "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml"
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
-  "[json][jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 3
-  },
+  "[java]": { "editor.defaultFormatter": "josevseb.google-java-format-for-vs-code" },
+  "[sql]": { "editor.defaultFormatter": "ReneSaarsoo.sql-formatter-vsc" },
+  "[shellscript]": { "editor.defaultFormatter": "mkhl.shfmt" },
+  "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
+  "[yaml]": { "editor.defaultFormatter": "redhat.vscode-yaml" },
+  "[json][jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode", "editor.tabSize": 3 },
   "SQL-Formatter-VSCode.dialect": "postgresql",
   "SQL-Formatter-VSCode.dataTypeCase": "upper",
   "SQL-Formatter-VSCode.keywordCase": "upper",
