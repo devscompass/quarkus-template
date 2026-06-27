@@ -3,15 +3,41 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="https://www.gradle.com/develocity-maven https://www.gradle.com/schema/develocity-maven.xsd">
 
+  <enabled>true</enabled>
+  <projectId>quarkus-template</projectId>
+
+  <server>
+    <url>https://scans.gradle.com</url>
+    <allowUntrusted>false</allowUntrusted>
+  </server>
+
   <buildScan>
+    <termsOfUse>
+      <url>https://gradle.com/help/legal-terms-of-use</url>
+      <accept>true</accept>
+    </termsOfUse>
+
+    <capture>
+      <fileFingerprints>true</fileFingerprints>
+      <buildLogging>true</buildLogging>
+      <testLogging>true</testLogging>
+      <resourceUsage>true</resourceUsage>
+    </capture>
+
     <publishing>
-      <onlyIf>false</onlyIf>
+      <onlyIf>true</onlyIf>
     </publishing>
   </buildScan>
 
   <buildCache>
     <local>
       <enabled>true</enabled>
+      <storeEnabled>true</storeEnabled>
+      <cleanup>
+        <enabled>true</enabled>
+        <retention>P14D</retention>
+        <interval>P3D</interval>
+      </cleanup>
     </local>
 
     <remote>

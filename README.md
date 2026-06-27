@@ -16,7 +16,8 @@ A **starter template** for building backend applications with [Quarkus](https://
 - :open_file_folder: Defined project structure with ready-to-use [`application.properties`](src/main/resources/application.properties)
 - :test_tube: [JUnit](https://junit.org/) unit tests to keep code honest
 - :chart_with_upwards_trend: [Micrometer](https://micrometer.io/) for application metrics and observability
-- :fast_forward: [Develocity build cache](https://gradle.com/develocity/product/build-cache/) enabled for accelerated builds
+- :fast_forward: [Develocity Build Cache](https://gradle.com/develocity/product/build-cache/) enabled for accelerated builds
+- :bar_chart: [Build Scans](https://gradle.com/develocity/product/build-scan/) for build insights and troubleshooting
 - :hammer_and_wrench: [Makefile](https://www.gnu.org/software/make/) targets for format, build, run, and container tasks
 - :broom: [Spotless](https://github.com/diffplug/spotless) on `validate` phase and with a `pre-commit` hook for style enforcement
 - :pen: [VS Code](https://code.visualstudio.com/) and [IntelliJ IDEA](https://www.jetbrains.com/idea/) settings included
@@ -31,10 +32,10 @@ A **starter template** for building backend applications with [Quarkus](https://
 
 ## :rocket: Getting started
 
-- Before you start development on this project, run the prep target. This will install a hook that would check your commit for code formatting issues.
+- Before you start development on this project, run the init target. This will install a hook that would check your commit for code formatting issues.
 
    ```shell
-   make prep
+   make init
    ```
 
 - Run the application in dev mode that enables live coding. Quarkus dev UI would be accessible at [http://127.0.0.1:8080/q/dev-ui/welcome](http://127.0.0.1:8080/q/dev-ui/welcome).
