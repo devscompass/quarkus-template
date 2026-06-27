@@ -33,6 +33,11 @@
     <local>
       <enabled>true</enabled>
       <storeEnabled>true</storeEnabled>
+      <cleanup>
+        <enabled>true</enabled>
+        <retention>P14D</retention>
+        <interval>P3D</interval>
+      </cleanup>
     </local>
 
     <remote>
