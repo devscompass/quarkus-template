@@ -3,9 +3,16 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="https://www.gradle.com/develocity-maven https://www.gradle.com/schema/develocity-maven.xsd">
 
+  <enabled>true</enabled>
+
   <buildScan>
+    <termsOfUse>
+      <url>https://gradle.com/help/legal-terms-of-use</url>
+      <accept>true</accept>
+    </termsOfUse>
+
     <publishing>
-      <onlyIf>false</onlyIf>
+      <onlyIf>true</onlyIf>
     </publishing>
   </buildScan>
 
