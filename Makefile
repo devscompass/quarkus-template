@@ -1,7 +1,7 @@
 CONTAINER_ENGINE := $(shell if command -v podman >/dev/null 2>&1; then echo podman; else echo docker; fi)
 REVISION := $(shell git rev-parse --short HEAD)
 
-.PHONY: help init clean test dev format check-updates build build-native run run-native container-build container-run container-stop container-logs container-destroy
+.PHONY: help init clean test dev format check-updates update build build-native run run-native container-build container-run container-stop container-logs container-destroy
 
 help: ## show this help message
 	@echo "Available targets:"
@@ -26,6 +26,9 @@ format: ## format codebase
 check-updates: ## check for dependency and extension updates
 	@./mvnw versions:display-property-updates
 	@./mvnw versions:display-extension-updates
+
+update: ## update dependencies
+	@./mvnw versions:update-properties
 
 build: ## build app in jvm mode
 	@./mvnw clean verify -Drevision=$(REVISION)
